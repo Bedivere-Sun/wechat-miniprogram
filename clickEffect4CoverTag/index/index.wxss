@@ -1,0 +1,33 @@
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.component {
+  margin: auto;
+  border-radius: 15px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+camera {
+  width: 80%;
+  margin: auto;
+  height: 40vh;
+  border-radius: 15px;
+}
+
+.minibtn {
+  width: 30px;
+  height: 30px;
+
+  top: 5%;
+  right: 5%;
+  position: absolute;
+  border-radius: 5px;
+}
+
+

@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="intro">样例：我要在摄像头中增加一个切换摄像头的功能</view>
+
+  <view>
+    <camera device-position="{{pos}}">
+      <cover-image src="{{switchBtnIcon}}" class="minibtn" bindtap="chBtnIcon" />
+    </camera>
+  </view>
+</view>
