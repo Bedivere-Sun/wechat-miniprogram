@@ -1,0 +1,6 @@
+App({
+  tmpAddr: '',
+  onLaunch: function () {
+
+  }
+})

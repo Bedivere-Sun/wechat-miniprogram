@@ -1,0 +1,8 @@
+<!--add/add.wxml-->
+<text>新增收货地址</text>
+
+<form bindsubmit="submit">
+  详细地址：
+  <input name="addr" placeholder="请输入详细地址" value="{{addr}}" bindinput="chInput" />
+  <button form-type="submit" type="prime" >提交</button>
+</form>

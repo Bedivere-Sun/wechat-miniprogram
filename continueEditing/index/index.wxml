@@ -1,0 +1,11 @@
+<view class="intro">欢迎使用代码片段，可在控制台查看代码片段的说明和文档</view>
+
+<view>即将完成订单，请选择收货地址</view>
+
+<radio-group>
+  <view wx:for="{{addrs}}" wx:key="index" >
+    <radio id="addr{{index}}" value="{{item}}" /><text>{{item}}</text>
+  </view>
+</radio-group>
+
+<button bindtap="gotoAdd">增加收货信息</button>
