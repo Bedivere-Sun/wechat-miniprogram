@@ -1,6 +1,0 @@
-App({
-  tmpAddr: '',
-  onLaunch: function () {
-
-  }
-})
