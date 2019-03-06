@@ -1,0 +1,42 @@
+<!--
+  wxs是可以直接在wxml里面嵌入的一种混合脚本，它支持部分ES5的内建功能，不能引入任何外部变量，只能实现简单的脚本，以便我们使用。
+  这里的 module="lib"相当于是声明有lib这样一个混合脚本的代码块，代码块中的cut通过module.exports来暴露给wxml调用。
+
+  我后面用到的 lib.cut(content) 就是调取出来，我给length设置了默认值50，所以它默认切0~50这些字符来显示，
+  为了能不让“…”串行或者溢出，我最后让它返回length - 1个字，算上省略号还是50字（聪明吧？）=_,=|||
+
+  a wxs file is a kind of mixed script in wxml file. it supports parts of ES5 builtins, can not import any outer variables or objects. 
+  wxs scripts could be Bracketed by <wxs> tags in a wxml file. It can only use for simple functions.
+  module="lib" means to declare a code block named lib. any function could be exported as an API.
+
+  lib.cut(content) means to call cut function in lib code block.
+  I set a default value of length. to let the function cut at most 50 characters(by default).
+  I returned length - 1 characters for the condition of elipsis being recongnized as an overflow text and hidded.
+-->
+<wxs module="lib">
+  function cut(txt, length = 50){
+    if(txt.length > length) return txt.slice(0, length - 1) + '…';
+    
+    return txt;
+  }
+
+  module.exports = {
+    cut: cut,
+  }
+</wxs>
+
+<view class="intro">代码段：限制显示文本内容</view>
+
+<view class="blockList" wx:for="{{textBlocks}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+  <view class="block">
+
+    <view class="title" id="{{index}}" bindtap="showHideContent">
+      {{item.isHidden ? "►" : "▽"}}　{{item.title}}
+    </view>
+    
+    <view class="content overFlowType{{index}}" hidden="{{item.isHidden}}">
+      {{ index > 1 ? lib.cut(content) : content }}
+    </view>
+
+  </view>
+</view>

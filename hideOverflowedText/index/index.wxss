@@ -1,0 +1,77 @@
+.intro {
+  margin: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.blockList {
+  width: 80vw;
+  margin: auto;
+}
+
+.block{
+  width: 100%;
+  margin: 1rem 0;
+  background-color: #eee;
+}
+
+.title {
+  width: 100%;
+  color: white;
+  text-indent: 0.5rem;
+  background-color: blue;
+}
+
+/*
+  text-overflow是和overflow:hidden一同使用的，这点请一定要记住
+  text-overflow must be with overflow:hidden.
+*/
+.content {
+  text-indent: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overFlowType0 {
+  padding: 1rem;
+}
+
+/*重点来了！*/
+/*
+  这里是显示一行的设置
+  an easy way to hide overflow text for a single line.
+*/
+.overFlowType1 {
+  height: 1rem;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+/*
+  这是一种取巧机制，利用-webkit-box可以设置显示3行文本，但是这个隐藏受制于整个内容盒子的高，而且不属于推荐应用的标准。在任何情况下我都不推荐各位使用-webkit-box
+  我特地用border把这个边框改成了红色，你可以自己试试变更height或者设置一个padding值，看看，可以说这样写非常不好看，而且不容易实际达成目的
+
+  this is an alternative way to let -webkit-box control overFlowType2 could only display 3 lines of text.
+  BUT!
+  Infact, such a css3 settings are not in the common style standard. It is NOT RECOMMENDED to use -webkit-box for achieving functions.
+  I've set a red border to let you attention to adjust values of height or set a padding value to see how it looks like.
+*/
+.overFlowType2 {
+  height: 4rem;
+  overflow: hidden;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  border: solid red;
+}
+
+/*
+  这是最简单的风格，因为它其实是在一个混合脚本里面实现的，请看index.wxml的<wxs>标签部分
+  This is a simplest style setting, for it is achieved by wxs script mixed in wxml. please refer to <wxs> tags in index.wxml.
+  */
+.overFlowType3 {
+  padding: 1rem;
+}
